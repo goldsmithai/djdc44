@@ -1,0 +1,156 @@
+Write a Python script that uses the OpenAI API and the "gpt-4o-mini" model to answer a user's prompt based on a set of relevant documents. The script should:
+
+
+1. **Read the prompt** from a text file named "prompt.txt".
+
+2. **Read the relevant documents** from a JSON file named "retrieved_documents.json". This file contains a list of JSON objects, each with a "document" field (containing the text of the document) and a "distance" field (containing the cosine similarity score between the document and the prompt).
+
+3. **Format the documents** into a single string, with each document separated by a newline. Include the cosine similarity score in parentheses after each document. For example:
+
+
+```
+
+Document 1 text (0.123)
+
+
+Document 2 text (0.234)
+
+
+Document 3 text (0.345)
+
+```
+
+
+4. **Create a chat completion request** to the OpenAI API using the "gpt-4o-mini" model.
+
+5. **Include the following messages** in the request:
+
+    * A system message instructing the model to answer the user's prompt based on the provided documents.
+
+    * A user message containing the formatted documents string and the user's prompt.
+
+6. **Print the model's response**.
+
+
+**Assumptions:**
+
+
+* The `openai` library is installed.
+
+* The `OPENAI_API_KEY` environment variable is set.
+
+* The "prompt.txt" and "retrieved_documents.json" files exist in the same directory as the script.
+
+
+**Example:**
+
+
+If "prompt.txt" contains:
+
+
+```
+
+What did John Doe say about the project?
+
+```
+
+
+And "retrieved_documents.json" contains:
+
+
+```json
+
+[
+
+  {
+
+    "document": "John Doe (2024-10-14 10:02 GMT): The project is progressing well...",
+
+    "distance": 0.123
+
+  },
+
+  {
+
+    "document": "Jane Smith (2024-10-14 10:05 GMT): John, how's the project going?",
+
+    "distance": 0.234
+
+  },
+
+  {
+
+    "document": "John Doe (2024-10-14 10:06 GMT): I think we'll finish ahead of schedule.",
+
+    "distance": 0.345
+
+  }
+
+]
+
+```
+
+
+The formatted documents string would be:
+
+
+```
+
+John Doe (2024-10-14 10:02 GMT): The project is progressing well... (0.123)
+
+
+Jane Smith (2024-10-14 10:05 GMT): John, how's the project going? (0.234)
+
+
+John Doe (2024-10-14 10:06 GMT): I think we'll finish ahead of schedule. (0.345)
+
+```
+
+
+And the user message would be:
+
+
+```
+
+John Doe (2024-10-14 10:02 GMT): The project is progressing well... (0.123)
+
+
+Jane Smith (2024-10-14 10:05 GMT): John, how's the project going? (0.234)
+
+
+John Doe (2024-10-14 10:06 GMT): I think we'll finish ahead of schedule. (0.345)
+
+
+
+What did John Doe say about the project?
+
+```
+
+
+The script should then send this information to the "gpt-4o-mini" model and write the result to the file "final_output.txt". Don't print any output. Also write the constructed user_message to a file ("final_prompt.txt"). Be sure to use this example of the chat completion api: from openai import OpenAI
+
+client = OpenAI()
+
+
+completion = client.chat.completions.create(
+
+    model="gpt-4o",
+
+    messages=[
+
+        {"role": "system", "content": "You are a helpful assistant."},
+
+        {
+
+            "role": "user",
+
+            "content": "Write a haiku about recursion in programming."
+
+        }
+
+    ]
+
+)
+
+
+print(completion.choices[0].message)

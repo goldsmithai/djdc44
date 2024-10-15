@@ -1,0 +1,82 @@
+[
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:40 ): I'm looking at those migration, The downside of sequel, the upside of having schemas generally, rigid schemas is then you're guaranteed to know that you're data follows this format. We're not just gonna have JSON that has all these different fields and a bunch of data that doesn't agree with each other, But the downsides are kind of seeing now that going back that first thing you mentioned, this is why you have people that get to grease and database management. It's mostly because the sequel once you go into production every time, you can never lose any data. You have to maintain consistency over every transaction 100% of the time. And the thing needs scale to be kind of the heart of the entire, scale infrastructure. And so you end up, just as I was charging, I had phones, I always woke up a guide for migrating and postgres. It's like The",
+        "distance": 0.418447816854445
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:20 ): where you basically have some window, We're gonna do this. When there's very few users that are using the site and then, The simplest version is really just like, Okay, we have if the database is small enough and you can do the change, do this, full migration of the database events, how big, the big thing is, there's no hard and fast because rule because depends on how big the database is, right? So if you're doing this sort of you have a big database and you have a lot of tables and then you almost do like a huge database refactor, right where you're with a bigger than what we're doing. You kind of have to do that because the end of the day, because so much data is being transformed. It's sort of more efficient, just to say, okay, great, this new database and then copy all the data over. And so even you have to worry about",
+        "distance": 0.42410594170096827
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:45 ): When you're ready to do, the migration, you get test, both of those scripts in an isolated, Development, SQL database, and you gotten pretty far there by saying I'm gonna copy 200 transactions, copy that to a test table, Do that, and kind of doing all that work. But the more fields you kind of have the more that it's like every single time you change anything, you're also changing the schema and then you're doing that database, kind of thing. And a lot of times when that works well",
+        "distance": 0.44674542343056467
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:15 ): Using the database kind of in front of the database. wherever in the business logic, you're gonna do, The basically creates a temporary transaction log, So that while you're migrating the database over, right? There's additional rights at those, make it into the second database, right? that approaches generally\u2026",
+        "distance": 0.45702568726699844
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:15 ): yeah, there's a few different ways to kind of approach that The most straightforward is basically you kind of do this sort of effectively the idea that you kind of migrate over to a new database instance one thing, I've known people in the past have done is that approach or\u2026",
+        "distance": 0.46332173791373366
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:50 ): I'm a developer and I want to make this change. It takes a month before the database engineers get to my ticket and actually decide to change that schema. And you're kind of seeing why right now. it's and even if you get a system down, okay, this is how we're gonna do, migrations We have our scripts. we modifying them from previous runs that we know work, right? It's still like every single time you, change that schema, there's some risk that something is wrong and then there's this big, roll back problem. And then the data that came back in the day, maybe these fallout databases, we're basically anytime something didn't work, they would just dump it to a dedicated database extreme basically that had people manual going in and reading the problems and then writing queries that would modify the real database, The whole thing would just be alive as this, here, the problems coming out and you're the fixes for",
+        "distance": 0.4732816631472171
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 15:00 ): honestly, this isn't one of the biggest reasons. After this one project where I was using Postgres, this is that biography website where they were using SQL then. I was migrating over to postgres, It just became such a mess that I finally. That was part of when I was Okay, I'm just gonna kind of start using firebase from MongoDB. I think it was firebase at the time. it's like, no secrets. But you know what? I don't have the same consistency guarantees, but at the end of the day, the beauty is you generally. If you take a different pattern, which is one where at runtime you deal with data that's not in the schema as it comes along.",
+        "distance": 0.47558662597170376
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-25 15:01 ): Run, manually copy them back over basically saying do you know Write a standalone script afterwards? That's scan this new database, Grab any changes that are recent and then do a right to the old database and these old rows, Modify the script you kind of have, but you got to do instrument after the fact to see if gosh So the trick is usually the rollback, this is where automated testing is so valuable, Because you don't want to do the rollback two days after you do the migration. That's like a big problem.",
+        "distance": 0.4839583095378035
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 15:00 ): it's not the worst thing or It's bad. If you're the person that comes in 20 years later, when I have to actually rebuild this entire website, This is a mess, but for the one person who's working on it over those 20 years, there was never some risk that was gonna break everything right, because, what we're doing is trying to get ahead of it. Basically say, Okay, we're doing these big breaking changes, but we're doing it, We really don't have any users and again, we're trying to but I want to balance this idea of like we want to say, yeah, we're in production. We can't just break everything, but we have to still make some practical trade-offs and so, yeah, I think the code you have is good because all right, we're doing this migration. And then, Yeah, if you just have a deployment script, the basically tries to migrate the whole thing and for some reason, we have a test, it doesn't work, then, just switch back to the old version of the API, and UI, and everything should just keep working correctly because you haven't actually touched the day, the tables, that rely on the old API.",
+        "distance": 0.4946833545279792
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:50 ): We have this really good high-scale architecture, this doesn't have anything, this doesn't have anything, this doesn't have any state and then all the sudden you have this database and you don't really have the resources or the expertise, know what I mean? Or the experience to actually deal with all these problems that come up in a real database, And so I think we're hitting that point where it's How and the other challenge was, It's part of the reason I feel moved away from SQL, It wasn't just scale into stuff like, Mongo. It's flexibility. It's saying, we'll developers can't do much, right? Because if you make any change to the schema of the database, this is why? It can be like,",
+        "distance": 0.4971075164628611
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:20 ): And then you have all this relational database, it's actually easier just to say write a bunch of these queries that do all those joins and then copy the data over Just duplicate all the tables because then you're getting all the new keys. I don't think we're going to do I don't think it's that big of a transformation is the table that we're duplicating.",
+        "distance": 0.49784012287956436
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:45 ): So for example, when I was in Klamath Falls, one of the guys, the working space whole degree was in database, He was the database guy and he worked at a medical company and there's the tricky because they had two databases. They're both postgres hippa and non-hippo, right? So for all the healthcare stuff that was had to be in one that had been database and then something didn't have to be. And I remember what I probably told you the story before but he was ready to college and he worked that job for six months. and this other guy, he was a hundred percent company. They probably had, or customer service sales marketing people. Maybe a technical team of 10 executives in San Francisco, and that to, three or four, Devops people and to database people, That are dedicated to only writing and he would have these migration quit when he would have to do L, he would have these migration queries that were like a thousand lines.",
+        "distance": 0.5085852095672508
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 15:05 ): And so the trick is because you're that fine-grain control in theory, you can do a lot of stuff in a SQL database to manage consistency. That's even external to what the database provides tools to do, Because this is all right, plugins and stuff, that you could have that's like this is for backing up or This is for making something more distributor like Sharding, the database or duplicating for there's certain stuff for Ultra High reliability, transaction stuff like banks transferring millions of dollars to other banks and stuff. We're like you can have higher levels of auditability of data governance. Okay but anyway for us the reality it's impractical, To kind of do too much and so I think Yeah the ideas thing. We're not even gonna duplicate the entire database just doing a new table for this change will work really well.",
+        "distance": 0.5114399199198105
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-09 14:55 ): the other part is we might want to, I think now is probably a good time to switch to a managed database because right now there's not very good backup and roll back like capability. Yeah, we have this database that's just running on the same instances, the application server, and sure it gets backed up nightly, but there's no transaction level back up in case we need to know what I mean? there's transaction level back up, that should be built into the instance, But if an instance fails, we'll lose a days worth of database transactions. Whereas it's only 15 dollars a month for the managed postgres in digital ocean and it just means okay we're taking over a port to this other database and that, it's kind of a slightly different pattern but I figure at some point we're gonna want to do that anyway, right?",
+        "distance": 0.5191364883418588
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:45 ): He was the more junior of the two database people and there's six months after you've been there He got really confident that we don't need to kind of go through he was doing a live migration and their entire site went down, And this is a company that raised a series, be had a hundred full-time employees in And so it was is a huge deal. They had real customer they were doing medical insurance for small medium sized businesses. So they have four or five thousand companies that were customers are theirs that people needed to be able to, log in, to their health insurance, right? So it's really mission critical.",
+        "distance": 0.5265030098906184
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:55 ): Someone's playing the windows? I was like my sh. repelling down, I don't know if you can see that scared of All right, I think this is basically, right? And we'll just got to keep it simple and so I think, for this migration just doing it whatever way you can figure, make sure whatever you do, you can undo it, that's really the only thing that matters, If it ends up being like, okay, we're doing this migration, it's the first one. We gotta figure out how to do it and we have down to have an hour to like that. That's gonna be a reality because anything we try to do this guys to guarantee there's no downtime,\u2026",
+        "distance": 0.5293029921572461
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-25 15:31 ): Yeah, yeah. And it reduces the sort of tight coupling between the AI. We don't really want this idea of these two. The AI being isolated isn't really true if suddenly every time we change the database, schema we're actually updating interview, the AI code to output those fields. This is gonna be nice because basically, We have some general, format, that's return an object where each, entry has input and output. and For now, the beauty is for the actual schema change. You just have to change the type. Yeah, I would just have a single thing called cost at that type JSON. And I wouldn't even worry about the buy the JSON, B. I mean, it doesn't really matter. I don't think in the sense that we're not super worried about performance. These are small JSON up.",
+        "distance": 0.5306715122138431
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-25 15:36 ): To prove in the same way that people who create databases do, There's no race conditions and that there's a guaranteed to be atomic or that, the transactions are item code or whatever kind of guarantees that he'd be made the database level. So now, the database is no longer at database. It's like a guide to how to create hoc databases, right? So I mean that gets to this whole idea which it makes sense to do stuff ad hoc and in the history of programming it's always been a risk deserve reinvent. The wheel in some ad hoc way, right? but the question isn't that the whole promise of AI and it can just do it ad hoc and put in the resources to prove that it's correct and make the ad hoc thing as robust as the non ad hoc like commodity thing so anyway, Those are my thoughts on it.",
+        "distance": 0.5356023191281714
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:45 ): One side that I was like, you need a migration script and then you need to roll back script because you need to have the rollback rate at grow.",
+        "distance": 0.5363170808341551
+    },
+    {
+        "document": "Steve Goldsmith (2024-09-23 14:20 ): Google has really good guides for doing this with big table where they're create this. New instance of the database and then you kind of have to ramp up the copying. And almost the trick is a lot of the infrastructure won't support. Just copying, Petabytes of data directly. So they have all these guys ramp up to this speed and then kind of Let the copying happen but in our case what two things we probably don't really need to duplicate the entire database because it's not like this complicated idea. Would joins where we have a lot of foreign, right. That's usually where it gets tricky where you're wait getting a new database but the new table, we're doing but The old table has all these keys that other tables point to",
+        "distance": 0.5394665369794692
+    }
+]

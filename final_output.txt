@@ -1,0 +1,21 @@
+Steve Goldsmith provided a comprehensive discussion on database migration, highlighting both the challenges and strategies involved. Here are the key points he made:
+
+1. **Schema Rigidness and Flexibility**: He acknowledged that having rigid schemas ensures consistency in data formats, preventing discrepancies often seen with JSON, but it comes with downsides. The complexities of managing a schema mean substantial challenges when it comes to scaling and maintaining data integrity during production.
+
+2. **Migration Strategies**: 
+   - He discussed various strategies for migrating databases, including full migrations, especially for small databases, and the necessity of planning based on the size of the database and complexity of the tables. 
+   - For large databases, he suggested that sometimes it's more efficient to perform a complete database refactor, creating a new database and copying over the data instead of trying to modify the current one.
+
+3. **Testing and Rollback Procedures**: Steve emphasized the importance of testing migration scripts in isolated, development databases before deploying. He pointed out the critical need for having a rollback script ready, as data migrations can introduce risks if something goes wrong.
+
+4. **Transaction Management**: He highlighted the need for transaction logs during migration to ensure that while data is being copied and migrated, any additional writes can be captured and incorporated into the new database.
+
+5. **Automated Testing**: The significance of automated testing was noted, particularly to ensure that any changes made don't disrupt the existing systems, especially when rolling back from migrations that might not work as intended.
+
+6. **Migration Risks**: He shared experiences of migration mishaps and mentioned how critical it is to have a fallback plan when working in production settings to avoid complete system downtime.
+
+7. **Choose the Right Tools**: He recommended considering managed database services to simplify backups and rollback capabilities, as these can save significant manual effort and minimize risks.
+
+8. **Long-term Database Management**: Steve talked about the reality of managing databases over time, noting that while the initial setup may be manageable, over the long haul, databases can become intricate, making maintenance increasingly difficult.
+
+Overall, Steve conveyed that while database migrations can be fraught with difficulties, careful planning, adequate testing, and a good rollback strategy are essential for successfully navigating the process.

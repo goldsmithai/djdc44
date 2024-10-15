@@ -1,0 +1,102 @@
+You're tasked with creating a Python script that can find the most relevant documents from a set of transcripts, given a new prompt. Imagine you have a collection of transcribed conversations stored in a JSON file called "transcripts_embeddings.json". Each entry in this file contains the text of a speaker's turn and its corresponding embedding (a numerical representation of the text).
+
+
+Your script should do the following:
+
+
+1. **Read the Prompt:** Begin by reading a user's prompt from a text file named "prompt.txt". This file contains a single prompt, such as a question or topic of interest.
+
+
+2. **Generate an Embedding:** Use the OpenAI API to generate an embedding for this prompt. Make sure to use the `text-embedding-3-small` model for consistency with the existing embeddings. You'll need to have the `openai` library installed and your `OPENAI_API_KEY` environment variable set. You can achieve this using the following Python code:
+
+
+```python
+
+import openai
+
+
+# Load the OpenAI API key from the environment variable
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+
+# ... (rest of the code) ... 
+
+
+response = openai.embeddings.create(
+
+    input=prompt,  # This is where you use the prompt read from "prompt.txt"
+
+    model="text-embedding-3-small"
+
+)
+
+prompt_embedding = response.data[0].embedding
+
+```
+
+
+3. **Load the Transcripts and Embeddings:** Load the "transcripts_embeddings.json" file. This file contains a list of JSON objects, each with a "document" field (containing the transcript text) and an "embedding" field (containing the numerical embedding).
+
+
+4. **Calculate Cosine Similarity:** For each transcript in the loaded JSON data, calculate the cosine similarity between its embedding and the embedding of the user's prompt. This will give you a measure of how semantically similar the prompt is to each transcript. You can use the `spatial.distance.cosine` function from the `scipy` library to calculate the cosine distance. Make sure you have `scipy` installed.
+
+
+5. **Rank and Select:** Sort the transcripts by their cosine similarity to the prompt (from most similar to least similar). Select the top 20 most similar transcripts.
+
+
+6. **Output the Results:** Create a new JSON file named "retrieved_documents.json" and store the top 20 transcripts along with their cosine similarity scores in this file. Each entry in the JSON file should be an object with two fields: "document" (the transcript text) and "distance" (the cosine similarity score).
+
+
+**Example:**
+
+
+If "prompt.txt" contains:
+
+
+```
+
+What did John Doe say about the project?
+
+```
+
+
+And "transcripts_embeddings.json" contains several transcripts, your script should calculate the similarity between the prompt and each transcript, identify the top 20 most relevant ones, and store them in "retrieved_documents.json" in the following format:
+
+
+```json
+
+[
+
+  {
+
+    "document": "John Doe (2024-10-14 10:02 GMT): The project is progressing well...",
+
+    "distance": 0.123
+
+  },
+
+  {
+
+    "document": "Jane Smith (2024-10-14 10:05 GMT): John, how's the project going?",
+
+    "distance": 0.234
+
+  },
+
+  {
+
+    "document": "John Doe (2024-10-14 10:06 GMT): I think we'll finish ahead of schedule.",
+
+    "distance": 0.345
+
+  },
+
+  // ... more entries ...
+
+]
+
+```
+
+
+This prompt is designed to be comprehensive and guide you through all the steps required to build the Python script. It includes specific file names, the necessary libraries, example code snippets, and a clear description of the expected input and output. Be sure to remove the embeddings themselves in the output file!!!

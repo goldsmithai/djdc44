@@ -1,0 +1,71 @@
+**Prompt:**
+
+Write a Python program that does the following:
+
+1. **Reads multiple text files** from a folder named "transcripts". Each file contains a transcript of a meeting with the following format:
+
+   ```
+   meeting-id (YYYY-MM-DD HH:MM GMT) 
+   Attendees: Person A, Person B, ...
+   Transcript
+   00:00:00 
+   Person A: Some text...
+   Person B: More text...
+   00:05:00
+   Person A: Text continues... 
+   ...
+   ```
+
+2. **Parses the transcript** to extract the following information:
+   - Meeting start time from the first line (e.g., "2024-09-09 14:15")
+   - Speaker names and their spoken lines
+   - Timestamps, assuming each timestamp marks a 5-minute interval from the start time
+
+3. **Structures the extracted information** in the following format:
+
+   ```
+   [
+     "Speaker A (YYYY-MM-DD HH:MM GMT): Spoken text",
+     "Speaker B (YYYY-MM-DD HH:MM GMT): More spoken text",
+     ...
+   ]
+   ```
+
+4. **Outputs the structured data** as a JSON file named "transcripts_chunked.json".
+
+**Example:**
+
+Given a file named `meeting-abc.txt` in the `transcripts` folder with the content:
+
+```
+meeting-abc (2024-10-14 10:00 GMT)
+Attendees: John Doe, Jane Smith
+Transcript
+00:00:00
+John Doe: Hello everyone.
+Jane Smith: Hi John!
+00:05:00
+John Doe: Let's get started.
+...
+```
+
+The program should output a JSON file containing:
+
+```json
+[
+    "John Doe (2024-10-14 10:00 GMT): Hello everyone.",
+    "Jane Smith (2024-10-14 10:00 GMT): Hi John!",
+    "John Doe (2024-10-14 10:05 GMT): Let's get started."
+    ...
+]
+```
+
+**Clarifications:**
+
+* The program should be able to handle multiple transcript files in the `transcripts` folder.
+* The timestamps in the transcript always increment in 5-minute intervals.
+* The speaker names are always followed by a colon (":").
+* The output JSON file should contain a single array of strings. Each string represents a speaker's turn with the corresponding timestamp.
+
+This detailed prompt provides all the necessary information for the language model to generate the Python program you provided. It clearly outlines the input format, the desired output, and the specific steps involved in the parsing process.
+

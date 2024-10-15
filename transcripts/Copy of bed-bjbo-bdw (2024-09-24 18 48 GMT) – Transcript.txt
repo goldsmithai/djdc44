@@ -1,0 +1,344 @@
+﻿bed-bjbo-bdw (2024-09-24 18:48 GMT) – Transcript
+Attendees
+Murali Singh, Murali Singh's Presentation, Steve Goldsmith, Steve Goldsmith's Presentation
+Transcript
+Murali Singh: Yeah. I actually push that for and…
+Steve Goldsmith: Hey, John.
+Murali Singh: I got some errors, I think there's thing and God finish with that thing. Today. So, I was thinking now the main part is of the socket…
+Steve Goldsmith: Thanks.
+Murali Singh: because I guess majority of the issues which we added lab I have a big majority of them. Only one major issue is the drop down. the feature is the major and What we say mini database kind of thing. For us internally getting the news the stats and all portal stats are required. I've added one comment in the gate, lab. You can see that.
+Murali Singh: Just one.
+Murali Singh: So, the result stats I'm thinking to for us should be true visible to us only total number of user…
+Steve Goldsmith: 
+Murali Singh: who act interact with a child, user retention rate, terms and condition accepted. and for the chance, total chats for you, the chat duration that title link
+Murali Singh: And then the also message types like the response time between the user and the chat won't reply and the total number of conversations in that awkward. But usually you can say on conversation per chat also like average. How many conversation takes place between the chat and what is the ratio of the HTML versus the normal text reply, which we get from our response and what's the disk Error Rate. I don't know how we'll add but we can add if there is no reply to any certain message, then we can say that Are something like that, and Cautionated I'm thinking that cost.
+00:05:00
+Steve Goldsmith: Yeah.
+Murali Singh: Should we not be that? We should go further to convince for cost because GPT and cloudy and all the lens have the pricing as for the token.
+Murali Singh: So we should power towards that thing, not think on the town. So the cost basis thinking down to the open basis. are get that opens how much the user is using and then you added our pricing or…
+Steve Goldsmith: I mean,…
+Murali Singh: something like
+Steve Goldsmith: that's how we would do cost with the tokens, I mean, that's the same thing whether or not we restore tokens and then they change the price surprise ocean. Yeah.
+Murali Singh: Yeah, I like store that opens. Yeah, and then that thing like how much is the prompt reply in HTML replied?
+Steve Goldsmith: Yeah.
+Murali Singh: Open distribution that thing and the time is energy. This is hot. What can the user uses the highest and What's who are the user, who is using Something like that pattern and magic link usage rate like the magic language was generated and who has used that we have that thing for the usage rate and conversation depth. That is the maximum number of conversation. Took this in one chat. You can see, I guess I added that in the message also. I would say that.
+Murali Singh: and conversation, abandoned trade, meaning the percentage of chat with only one conversation And presentation rate also with good who are stopping aging with the chatbot over time. So these are the metrics and stats, you can say which we can add in any database in the JSON.
+Steve Goldsmith: So I mean yeah the trick is really thinking through I mean this comes out of the flexibility when we're talking about visibility into what's happening, our pretty broad spectrum all the way from stuff,…
+Murali Singh: 
+Steve Goldsmith: like churn, usually, keep performance indicator and is actually Sort of subjective, right? Because you have to make some arbitrary choices of What do we define insurance, And when does a user turn out,…
+Murali Singh: Yeah.
+Steve Goldsmith: there's other stuff that's really straightforward, number of messages. So like that.
+Murali Singh: Yeah.
+Steve Goldsmith: And then we want to think through what kind of flexibility you want? Because ideally, you want to be able to say, Okay, we have some question about our application and we get easy for us to kind of say, We need to answer that question. Go ahead and crash it. The trick is some of those things, right? we talk about a database or dumping this to JSON. The question is, how many of those are simple? these are just queries of the database that were day every day kind of making report, right? And then how much of this is actually things where we're collecting
+Steve Goldsmith: Work where it's trickier to do that, right to figure out where we actually make changes to, kind of upstream where we have to do something significant to kind of collect that data, so the one hand we have some stuff that I have to make some changes to the AI collecting the day, for example, right now, I'm not sending how many tokens it is. But that's a pretty,…
+Murali Singh: Yeah.
+Steve Goldsmith: obviously planned. I'm doing and pretty trivial. And when we talked about, the cost, right? It was always going to be based on collecting how many tokens for particular model and then just figure out How are we gonna present that? And as the pricing changes, we collecting tokens. we are returning the report the price, or we also collecting the price as we go.
+Steve Goldsmith: Because price is something If we include the price earlier, this may tokens is this price, and then we put that hard limit the second, okay. We stop generating or, something like that based on the current pricing of those tokens. so that sort of like it would make some beyond that information and bubble that The other idea with this is sort of this is a lot of metrics practically, I mean it's good second, all this data. So of them seem like more actionable than other ones,
+Steve Goldsmith: And so there are good so that they just think its This is a good set of things but it's a mix of all these different. things we just gotta figure out kind of what the prioritize and sort of what we want to actually do.
+00:10:00
+Murali Singh: Yeah.
+Steve Goldsmith: Yeah, as good like brains, okay here all the idea here, all the things you want to record. So things like the Magic Wing, Open rate.
+Murali Singh: 
+Steve Goldsmith: That's good to check for the case. Where something really breaks when the open,…
+Murali Singh: This.
+Steve Goldsmith: Goes down in Year Zero, then it's like, Okay, that's not good. Other than that, it's probably not that usable. Because you know what I mean? it's just like yeah.
+Murali Singh: You better get the sign up convert and…
+Murali Singh: sign up converting actually happening. that thing
+Steve Goldsmith: Yeah. so this,…
+Steve Goldsmith: I mean so I mean I think the biggest thing for us is to also think of it okay,…
+Murali Singh: 
+Steve Goldsmith: so we have all these metrics but it still doesn't really give us much visibility into What people are actually doing, I mean these are all numbers…
+Murali Singh: Yeah, the child.
+Steve Goldsmith: which is good. Yeah I think it's more important. That we just pulled the data out, …
+Murali Singh: 
+Steve Goldsmith: if that makes sense at this stage, this is a good in the future thing to say, with this dashboard, we can, if we had the ability to sort of monitor the dashboard and say, we see, there's some problem, or we see we've marginally improved. if we really had gone, if we go through and say, from marketing and sales perspective, what are our key performance indicators probably starting with this idea of
+Murali Singh: Hey.
+Steve Goldsmith: What's the North Star metric, right? that's kind of the most, like, the current,…
+Murali Singh: Hey.
+Steve Goldsmith: what kind of doing with some single metric. And our goal is to make that always go up and then understand okay, What it would feed into that northstar, what? KPIs me that or…
+Murali Singh: .
+Steve Goldsmith: some magic collect those and then actually put the good. All right, every week.
+Murali Singh: Yeah.
+Steve Goldsmith: What are we doing to improve that? The challenge of this is trying to figure out like what?
+Steve Goldsmith: Yeah, for each one of these what is gonna be actual because okay, let's say we categorize these, I'm gonna give three or four categories, So one is from a marketing perspective, recognizing our users. using words like a bandit, right or turn, right? Is this something showing that users are happy with the product because they're using the product, a lot type of thing, right? The other one Do we have technical problems? are we detecting something like real increase in some metric that …
+Murali Singh: Mmm.
+Steve Goldsmith: My gosh, things not working fundamentally correctly, where it's almost acting as a test. So for example, that could even deeper of something, Are we getting a lot of 400 or 500 errors versus 200 success. suddenly that's a very coarse metric, but often that's used because it's so simple pick. my gosh, we're seeing some spike in 500 errors, what's look into it, what's going on? So there's those types of errors and then I'm gonna call this third category, That's where you actually get really granular of saying, Are we actually sort of not in a statistical way but with visibility able to sort of anecdotally look in and see, okay, what are people?
+Steve Goldsmith: what are people kind of doing with the application and that's just for this in a traditional web application. It might be actually pretty straightforward with analytics to kind of like they're using this part of the application using this. Yeah, you have a to-do list app or a scheduling app and you say Okay, are people actually scheduling meetings for later people using
+Steve Goldsmith: Sort of this feature level analytics for us. I mean, because that's the challenge of the simple Application is, at the end of the day users chat with it and then all the sudden that doesn't really tell you much about What are the use cases. And so with, one way we could go is to kind of say, Okay, let's categorize some of these use cases just is doing Generation is somebody doing right email is just Of course general knowledge worker like business stuff is just like technical is this question and answer right? You're doing a knowledge type of question and sort of classify prompts and that would be you but that's a whole other can of work kind of go into.
+Murali Singh: Yeah.
+Steve Goldsmith: I mean I think is a good list because number of these are really important, I'll say that. So that's good that you put that together and…
+Murali Singh: Yeah that's right in the comment and…
+Steve Goldsmith: think about
+Murali Singh: care it will always useful for sure.
+Steve Goldsmith: But yeah.
+Murali Singh: We look back in the future what does things we have planned? Like we thought about and we can implement Are they think that's
+Steve Goldsmith: Yeah, I think for now starting with the simplest idea which is Take.
+Murali Singh: Getting all the Data. Yeah.
+Steve Goldsmith: Yeah, just getting all that data and dumping it and then it turns out it's relatively easy to just say, my gosh, we need to write a script. just like a Python or JavaScript sandal and script is We have all the data JSON file shoot. This is the question we need to be asking of the data. and to be able to poke around and kind of respect. let me write this five, wine thing, that answer some of those questions potentially, And then kind of okay as we build the thing out, It makes it. So we don't have to answer all those questions actually writing, like a postgres query, At some point of future. We might say, we actually need to
+00:15:00
+Steve Goldsmith: To write some query against that for the scale we're at the beauty is like we should be able to write those postgres queries. They should perform five right?
+Murali Singh: Yeah.
+Steve Goldsmith: A lot of these questions too often. This is where you start adding these column date of it. It's shoot, to answer that question and you end up scanning the database, you kind of have to aggregate all those things. This is where you can easily have aggregation pipelines or who do personally back. we're actually organize this by those metrics, right? We're not gonna need, which is good, but the trick is. It's small enough that we don't even need to write postgres queries to answer these. I think what we need. we really need to see is
+Steve Goldsmith: I mean it's okay that's why I divide this into these categories. I think if I'm just sitting here back my gosh, what's going on on our website and I can't figure it out right there.
+Murali Singh: Yeah.
+Steve Goldsmith: Yeah, there's two things. One is the website, just working correctly, which to some degree measuring number of magic,…
+Murali Singh: Yeah.
+Steve Goldsmith: links being open, is kind of good, but the problem is
+Steve Goldsmith: That doesn't really tell us much when we only have a few people clicking on them, Because we get three users and they don't open the magic link Why didn't they do that? We don't really know the reasons. They didn't really want to use their application. They didn't have their access to their email when they did it. They realized. I need to use that other email you kind of don't know…
+Murali Singh: Yeah.
+Steve Goldsmith: what the reason is and they don't know its technical I think for those technical ideas it should be more about us. Just adding monitoring and testing manually and being there's a thing work correctly and then for the visibility into who are How many users do we have? Yeah, that's I think even the idea of did they abandon the chat? We don't really know. Maybe they were doing good enough job that they're getting the Correct on the first question. Right? Because we're doing this long form answer and suddenly the idea of what does it mean to have an abandoned chat right to be. Doesn't mean asking one question or maybe that's actually the goal versus simply saying Yeah, our people are people, you won't, everybody using it every day and the more importantly, my gosh, we got some user.
+Steve Goldsmith: And what do they actually put in? So we can start classifying down the roadside. We mainly looked at some chats and then said Okay they did some email I know we kind of add that as a category later. so I think frankly just doing we got assistance was really just busy dumping the database to a JSON file. and then maybe thinking through what do we actually need to store in the first place to answer some of these questions and usually the answer is just, store timestamp for everything. I mean, that's usually not a bad idea because then you have the data. So for example, a good one, you had is What's the average response? Stop, right.
+Murali Singh: Yeah.
+Steve Goldsmith: That's gonna be a really important one. Which generally then the question isn't so much, are we saving that it's own database, but simply are we recording the timestamp in the database when both those events happen? So for your new schema? Probably that makes sense for the time stamp. When a person created the prompt and then a timestamp. When the AI responded and then it's easy for us in the future to mention going to, shoot, we need to worry about response time. Let's add that query and then dump that, to some five because the other part is with This is business intelligence or usually what happens is, you can't
+Steve Goldsmith: There's some questions that, you're gonna need to know the answer to and so it's relatively easy back. Okay, we have visibility in the back question but a lot of times the problem becomes some problem comes up or something or some realization, my here's the question we need to ask, and…
+Murali Singh: Hey.
+Steve Goldsmith: then it needs to be as easy as possible to ask that question. When the time comes, which usually means really did. We collect the data in the first place? And that's the whole premise behind the sort of Big data movement, Is always save everything. And later some business person will go ahead and ask that question.
+Steve Goldsmith: I mean, you'd be amazed, especially here in the DC area. There's more people do it that do business intelligence than there are software developers. It's insane.
+Murali Singh: Yeah.
+00:20:00
+Steve Goldsmith: If you go to these meet, coding coffees pick me up, people who use tools like power bi, which is the Microsoft like that,…
+Murali Singh: Yeah.
+Steve Goldsmith: like visitor, and the reality is, they're not writing any code, right? Because that's kind of the beauty of it. The data, all the day is just being collected, it's being dumped into some Database, that's maybe not normalized like Mongo or something like that. And then those people are using a gooey to create almost you do a library type of, query and just pick up. I need to know the type of questions came up with and that's typically, not uneven developer. And some after the fact business analog, I don't know. that's a good question. As I talked with our customer, I talked with, the client and the answer this question, then they just go and ask that question of the data, and so a lot of the data science stuff, that's not like language models and machine vision or that some of these model oriented things are really just put that query into the
+Steve Goldsmith: You ask this of the user and some of it's a really large scale, Where you're the government hire some consulting company to ask some big question of its data to put some report together,…
+Murali Singh: Mmm.
+Steve Goldsmith: FBI report on violent crime in the United States, it's not so tricky, it's not so simple because you have a lot of disparate data you have data and bad formats, data qa and so I don't want to trivialize it in our case. It just comes out of that simpler. Question of Okay we're not safe we have to kind of decide what information we're storing as we go and we want flexibility, and that's tricky because flexibility comes at a cost, With software. If you create all these abstract things that seem really flexible. You have it Done the real thing. and so this is good. So if you look to that list you made, probably the best question to ask isn't so much at this point, What are we gonna make a UI to show those answers?
+Steve Goldsmith: Calculate those answers. But simply what do we need to add to the database? Get what more information. We need to store now. So if we needed to ask that question three weeks month from now we'd just be able.
+Murali Singh: Yeah.
+Steve Goldsmith: You just be able to write a postgres query and it would work and if it scans the database That's fine. We don't have that much data. So I think that's part of it. And then the other part is to say, okay, and then in the very short term, What information could you just sort of dump to JSON that? and I even think the idea like Here's what I would because I mean, frankly, it's sort of more like, I want to be able to Look at something every day. Here's actually what I would think would be perfect. Would take all the changes that happen in the last day, dump those to JSON.
+Murali Singh: Yeah.
+Steve Goldsmith: So use those time scampers doing a simple, scan use a timestamp,…
+Murali Singh: 
+Steve Goldsmith: select everything where you…
+Murali Singh: Background. Drones that thing.
+Steve Goldsmith: the time says and then
+Steve Goldsmith: Yeah you doing a crime job like nightly and then grab any new user that signed up that day, any new messages they added including the actual content, then in the cron,…
+Murali Singh: Yeah.
+Steve Goldsmith: tab job, send that as an email to my email address,…
+Murali Singh: Mmm.
+Steve Goldsmith: frankly with crossroad. That's how I was doing the new account. That's how I was getting all the visibility. I mean, I was just using Postsmart and basically doing a nightly Quran job it would just read through even dump the engine. Next logs, and then node logs into that email with a graphic expression, So that way if there's something like how many people access this endpoint? just grab the engine next logs or something and then just copy that into a field and chase off and then just put that in an email and then the trick is it's really silly but for example
+Steve Goldsmith: When there was this denial of service attack against the website, like Prospero, the reason I knew about it is I got this email that was 15 megabytes long and I was like, what? And I was like a 15 megabyte engine X log and I went to the timestamp, it was only in five minutes. I got a, tens of millions of requests and I was like that. I don't know that much traffic, but no, you users really signed up. this is definitely a denial of service attack. Because I mean that you get exactly five minutes of,…
+Murali Singh: Yeah, that's why. Yeah.
+Steve Goldsmith: that type of traffic. And so I Think about what, for a daily update I think. Yeah, that's the biggest thing is. And then if you just did one, where you said, okay, Do that without the timestamp So that we have everything that's happened in the past. Sent us an email, And then put in the cron job with the daily timestamp. And basically that way I want to see five people signed up yesterday. I get that in an email and I'm like Wow five people signed up and then we got total of 20 prompts and if we get to some point where
+00:25:00
+Steve Goldsmith: It's like this is just too much. Then all we do is just change out that script. So instead of it being in an email it's being saved to a file, right? And then we can actually write a script that's Though that's weeks worth or something and actually put that into chrome into rag or something and then do some LM, quit being like Hey categorize these prompts into these categories. We're a couple of the list of categories of these fall into, we can't really do it manually anymore. We'll use Llms to kind of work on already talking, that data into what happened in the last day. And the idea is this is then sort of independent of the actual database. So we don't have to worry about I'm doing some sort of database query to back. we get that information. We're just saying we're taking every day's change and just
+Steve Goldsmith: Dumping into a JSON file. So it's human readable because for now that's gonna provide that visibility we need to just be Okay, Are we getting people signed up? Are we? And that way You don't have to build a website, To actually just be like a dashboard, but at the end of the day, an email with JSON is readable, right? It's like Yeah. Okay, you just read it.
+Murali Singh: Yeah.
+Steve Goldsmith: It doesn't have to be fancy or anything and just already recording those time of stamps and…
+Murali Singh: and by the,
+Steve Goldsmith: then the beauty of the beginning, email and JSON is. If I do want to ask some questions like, what's the average latency? I can actually copy and paste the JSON file on the mind machine, and five line, script just being take these fields and subtract those two times stamps, and kind of ask, whatever questions I need of the data. If I happen to accomplish some or you happen to come with some new question and then it becomes easy to kind of say Okay you can't answer that question. That means we don't have the data in the database, the first place and we know we need to add, Time stamps or cost or do I really think it comes into this? there's really yet three things. We do need to add, which is timestamps for every every time, there's a database query,…
+Murali Singh: Yeah. Yeah.
+Steve Goldsmith: that's a timestamp. Then we're gonna have the cost of the AI. So I'll do that at some point and that'll be easy, that you already had those fields so that you kind of take care of it. And then,
+Steve Goldsmith: The other one is that error idea. I mean I really do like this idea of when we have an identifying that I think what we actually maybe should do is add an error field to the schema actually for the conversation because there's some errors that might be like,
+Steve Goldsmith: Silently. But if you don't really know what went wrong and we don't actually have an error message, the server was down. So the server didn't return error message or something or the end point was wrong. But there's other errors, where, We might actually be able to have the language. We don't quite have this at this point, but we might add another check to the language model. Yeah.
+Murali Singh: David Sunday. this thing you're going on.
+Steve Goldsmith: so there's something like that we're thinking someone asked for so. Safety is even another one where a person's they ask something that we should flag is other trying to poke around and jailbreak the thing
+Murali Singh: Yeah, because they already gave me. There are straight away. Don't know…
+Steve Goldsmith: Yeah.
+Murali Singh: why that thing you avoided inside, what happens with API or…
+Steve Goldsmith: Yeah. Yeah.
+Murali Singh: does it give
+Steve Goldsmith: Isn't reusing chat, It's like whatever DVD 40 does. ours is kind of gonna do whatever the underlying model is, we'll do it. But then there's another type of air though where it's, the LM can check at the end and kind of say I know there's some We didn't follow the instructions, but we weren't able to, And not because it said it was dangerous but simply it did not fall the instructions correctly but it was like we fixed it and suddenly it followed the instructions correctly, I had that problem. I was using it today to try do that chrome on something else and
+Steve Goldsmith: I mean maybe it was just like okay it was someone ambiguous in the prompt but it still was like I disregarded that thing about chroma but it was like, Wait, If I ask for it, why didn't you know, it kind of made an assumption and was like,…
+Murali Singh: Yeah.
+Steve Goldsmith: Okay, what you asked for, didn't make sense, so something where it's more like contextual or if it's like, Hey, we weren't able to convert the markdown, or it said There was python code, but there's no python code and then have another pass the very end check Are there any mistakes here? Finally and then dump that into some error message or where the OM actually doesn't.
+00:30:00
+Steve Goldsmith: For some reason, we have the rate limiting. That's the other thing I did ran into when I was going to Evals where I did the parallel, and I was saying the rate limiting the problem right now is at the end of the day, the scripture running still returns a string, so it's not like a 500 error. If you hit the rate limiting, you'll just get back some sort of probably XML or JSON that actually, then shows up in the final response I've ever read into that, with the actual chat tool because it's very hard to hit the rate limiting
+Murali Singh: one.
+Steve Goldsmith: I mean, as a human you can't run hundreds per second. you can with a script but cases like that. Where we've got it. But the trick is, we've got to actually have an LLM read the output and the thing about rate limiting is with it's the same API key then it's not good. I mean it won't work that I don't think won't work anyway.
+Murali Singh: Yeah.
+Steve Goldsmith: And so what to think about that but that's something I think more important than that, though. Yeah as if Even the time sounds like we can add the time whenever that makes sense, that we can add that the cost we can add, that'll be good. That more important. I think rent a moment is simply getting an idea is is anybody signing up for it? And are they doing chats?
+Murali Singh: Yeah.
+Steve Goldsmith: And what's the actual content of the chat? Because that allows in the short term to kind of focus on
+Murali Singh: I got that one.
+Steve Goldsmith: Because, I mean, even under these evals, the evals are good, if our goal is to, do well on the evals from the scoring perspective. So that kind of have that in the back of my mind. But the more I look to the questions, the more I was like, this is okay, but I'm really trying to think of how do we want to sell this application as What is it in terms of and you show me, it's really clear. It's like this is about search or perplexity. This is about search. If you're not using surge, use something else and then it fits into that mix of tools where maybe you're like, Hey, I want knowledge built in the AI, I'll use quad, I'll use it. I want to do Internet search. I'll use Reflexity, I'll use Andy, something like that until Co-pilot and Gemini clearly fit into I already have, all my Google docs in Ask Gemini about them or something with copilot. And really trying to figure out
+Steve Goldsmith: If our audience is technical, if our audience is web developers that we've got to add more features that are actually close the loop on web development or audience is more technical than that, that we've got to close the loop on those other things. and realizing all this stuff like rag and when I was doing more about that guy that went Sunday, the end of the day
+Steve Goldsmith: Rag works for a lot of these people, it's just kind of this crazy thing. That all the people that I talked to months ago, who are doing this for the companies, right for enterprise or government. Rag is very difficult to get to work, Because they have terabytes of data or petabytes of data and they're even internal, wikis that have thousands of documents, right or tens of thousands of documents and…
+Murali Singh: 
+Steve Goldsmith: figure out exactly or I was trying to do with the United States code, it's 200 million tokens, a couple of million works. that's so much that even an expert lawyer doesn't actually know what all the code sections say, they generally know, it's organizer finding them and on the other hand, when a user is I want to upload 10 pdfs and What's in this video? Yes. Do answer our question, that and then they like, anyone. Ask the next question. Keep using those PDFs, and then maybe Upload another two or three PDF, even someone who's like an academic who's like, my gosh, I got all these research papers open the reality is they're probably have 10 or 20 or maybe a hundred papers. They actually care about that are related to the topic that they're doing. and at the end of the day, even if that is a hundred or two hundred megabytes,
+Steve Goldsmith: It turns out that when they're there was that paper that talked about graph search. I'm gonna know,…
+Murali Singh: but,
+Steve Goldsmith: whatever it's like, I have the word graph search. And now this narrows it down a lot. and the ability to basically saying, Okay, we allow people to upload those PDF files you out, a lot of these features, the challenge becomes you add a bunch of features and that doesn't really answer the question of, what it's useful for, or what it's differentiated on, right?
+Murali Singh: Yeah.
+00:35:00
+Steve Goldsmith: and so, I mean, at some point the trick is we just gotta figure out what that is. I mean I think that's such that the beauty of China that's open. I know we can get people hopefully to be like, you better try, use shotgbt and then they'll use it. But I think we're gonna find is the use cases that we get are all over the place. It becomes hard to kind of use that to really narrow in on a particular use case. and I think,
+Steve Goldsmith: Figuring out, either just deciding okay, what are the use cases we're focused on or and then making evals that are specific to those? I don't know. So, I'm looking at rat. so I'm gonna call it in about half an hour with a guy from the National Press Club, to talk about the talk that I'm gonna give in a couple weeks, which I thought that would be a good opportunity to promote the tool, Because there'll be, a few people though and who's works are private equity firm. We'll probably just focus on AI funding, she'll probably be there and ben this other guy who does Enterprise ai stuff and then, a bunch of other people. So be good, maybe by then to kind of have some like, yeah, this is sort of the thing. I think for the talk, I want to give it on rag, which I'll have to then go force me to get that working, at least a standalone thing.
+Steve Goldsmith: But I think that sort of figuring out What are these specific? use cases or what are these things? So I mean Yeah, I generally, the application as an application, they're just the better, right? Because at the end of the day, we have a solid application and then it can just, build on that. And so some of the stuff like, error rate, that's all good. so the other thing that I'd answer this last time but it's really switching Forum Mini because then You leveraging for a mini more than the bigger models,…
+Murali Singh: What?
+Murali Singh: Yeah.
+Steve Goldsmith: because that'll keep cost down. And then we'll really be able to put what can we get down with for a mini and then use more search and rad with for a mini rather than a lot of the built-in.
+Steve Goldsmith: Reasoning and that way we can really kind of, maybe have some lower price because what really Yeah, I mean, this is the trick, the idea of paying more money for something that's better is simple, The challenges we then have to be better and it's very hard to be better if we don't actually have data from real use cases from real people, In the same way that open company that already has a bunch of users is Yeah it's not just as abstract thing or…
+Murali Singh: Yeah.
+Steve Goldsmith: these public data sets. It's like our users did this thing and the beauty with four Mini is We can really then extend the free version. I was doing the math on that some more that I mean I think if we set a reasonable choking limit and then say this is no longer a trial, we really Have a free plan that you can kind of use forever. You only get so many tokens per month and then if you pay a reasonable amount of money
+Steve Goldsmith: Hours a month, you get more tokens still using only mini. But I think the beauty of Mini it's cheap enough to hundredth the cost of, one. So it's just like you really can. and the trick though is with the rag, This is where I've got to dive deeper into rag to see one thing I realized is the only way to get the eval scores higher and do an eval. Just doesn't matter because it's not very difficulty. The gradual level knowledge is the one that is the challenge. The only really challenging one at this point. And the only way to get a higher score is to really,…
+Murali Singh: Know.
+Steve Goldsmith: leverage rag on documents that are within that domain, Otherwise you get the same thing. There's no way to do better prompt engineering if one doesn't have the answer in it which it doesn't for certain percentage of the questions. There's no amount of problems Engine gets the answer out of that and the whole point of those is they're not.
+Murali Singh: One.
+Steve Goldsmith: Directly Google searchable. So, if you do use search, as a way to get the information, it becomes really cost prohibitive. Unless you do an efficiently, because you can't just grab one answer in search.
+Murali Singh: Running.
+Steve Goldsmith: You need to do iterative, you…
+Murali Singh: Yeah.
+Steve Goldsmith: iterative search. We're actually getting out I like first principle approaches and then doing it calculation later, and doing proper research, like an academically do. And if you running the models on all those responses, it gets customer in a very quickly. So the trick is I've been reading rag papers today. Basically because there's hundreds of papers about dragons, I went over the survey paper and kind of went from there. But the trick is If you just do naive rag we just generating The good part is the pricing for the embeddings themselves is even cheaper than 01 Mini. So text embedding three small with opening Two cents per million tokens is one cent per million tokens with the batch.
+00:40:00
+Steve Goldsmith: API And so suddenly you really can Take a lot of search results generally embeddings for those and then search those embedding is just like is this even a chunk that we should include in another stage of prompting to get at that? And that's I think the only way to
+Steve Goldsmith: Tax should be able to say yeah we got a hundred percent on these evals by researching that idea and then research in the next idea and going down sort of like the Wikipedia rabbit hole and then going on Springer and searching some of those ideas in real academic journals. Taking those pdfs and converted us to embeddings and then alright, is there anything in this article that, Actually it tells you how are you supposed to solve this problem? If you're a graduate student, in biology or in chemistry or something and then using those techniques and going back into either for many or it sounds like, I don't know. If you saw it, we just got access to the '01 preview and 01 Mini in the team.
+Murali Singh: Yeah.
+Steve Goldsmith: Yeah, I thought we already had access to it but I got the email today for opening eyes.
+Murali Singh: Yeah.
+Steve Goldsmith: I don't really know what that was. but one Mini seems like it's explicitly designed around reasoning in stem.
+Murali Singh: Okay.
+Steve Goldsmith: Jobs at a lower cost than, the full one So we'll have to kind of see. okay, what are
+Steve Goldsmith: Does that help on those evals to…
+Murali Singh: Now.
+Steve Goldsmith: then kind of use that as that selling point of being? but here's my feeling, it's like, okay if we do well in the evals that is good from marketing perspective, That's the go to market strategy,…
+Murali Singh: Yeah.
+Steve Goldsmith: but it's gonna result in really high turn. If that's the only thing we have, Because people are gonna use it, they're gonna go, this is better than they use it. And if it basically works the same, we can't charge more money. And frankly even if it basically works the same but it's the same price. So even if we're using for many right and charging twenty dollars a month, we still have this problem that it's very hard to have as polished a product that's as integrated as, GP to your Claude or Gemini, or co-pilot in particular, where people are already having their doctor, know what I mean? I already have at work documents and so, page, 20 bucks a month because it sounds pretty interesting. I'm busy getting the same
+Steve Goldsmith: Audio results from my use cases. And then suddenly, it's like, Okay why am I doing? Let's see what the new of catchy PT is, Let's see what the new model of plot is doing. I think we need something that actually is more qualitatively differentiating, which could be the previous more I was from a security standpoint. This is what I still don't have a good answer. From a really strong security standpoint of being like what if we really want to run people's code and we're not giving them. The dedicated instance at the very expensive price point, we're saying, I don't know, it's shared, we run but now all of a sudden you can actually do backend development or you can do Brian development, We actually run JavaScript and not just HTML and CSS. But the problem becomes it's just really like
+Steve Goldsmith: From a security standpoint or something like, gosh, we're letting our whole content security policy works. Because we're basically saying all the code is statically written by us and we loaded in If you have the content security policy. What if you notice when you read those a while OS, Top 10, A big problem is you have the content security policy and then Use your generated scripts to be loaded off of your domain, You've undermined the entire security. I…
+Murali Singh: And the great.
+Steve Goldsmith: they could write code being fetch this endpoint and then It send an email to me with that result. And even using secure cookies, the other person's client that they shared that with suddenly just fetches, their credential or doesn't even fetch your credential. Just that is their other, prompts or delete their account or, just allows the person Of your credential forgery and using Joe Subdote other subdomains other stuff is one way to address it. Then I'm all setting up like an internal DNS server typically, because the problem is if you
+00:45:00
+Steve Goldsmith: If you use just a big public if you basically we just use the digital Ocean API to Set the DNS records. You don't have a good way to invalidate them or set the. so I think more about that would be nice feel to run to actually take no our secret sauce here is web development I mean this is great for Web development…
+Murali Singh: Yeah, something good.
+Steve Goldsmith: because you
+Steve Goldsmith: Yeah, or even just running scripts like we you do some sort of like so a data science was the other one that I kind of realized that it's not exactly as much in our wheelhouse. It's kind of the trade-off but would be a lot more straightforward just like you upload a CSV file that has your data. We do a bunch of llm stuff to clean it. Then we just generate an extra boost model for you and then that runs in some cloud GPU and there's really not that type of security risk that you have one development really back end of. I mean I say the front end part is the problem but that's actually a lot more reasonable. we could just do the sub domain thing that wouldn't be the problem. The problem is really, when you start saying, we're gonna have back in development, we're gonna let you use any technology you want between. Now, be installing stuff on the back and cousin, there's a whole point of doing the diamond thing was like, Okay if you have some use case for you really want
+Steve Goldsmith: Us to install custom software, Just pay us a lot of money and we will have a person managing your software. You'll have your dedicated instance you want embed system software. You got hardware in the loop we'll set up a proxy that connects to your actual location. We'll do it on whatever you want for twelve hundred dollars a month. And so somebody like doing embedded system, or if you're we do fluid mechanics simulations for the plastics. Industries fine, for you. We'll do whatever crazy thing you want, because I realize, that's mostly What's lacking with a lot of these solutions, Is that they don't connect to that ground. Truth, you can't run the thing constantly to just, get data out of whatever thing people already running, and, doing it all that other stuff is this security time, especially when it's like
+Steve Goldsmith: We've paid twenty thousand dollars per user for the simulation software or we have hardware in the loop at our physical location. raspberry, pi's, embedded devices behind it and we wall that off. It's almost like air gaps. By design. so, I don't know.
+Murali Singh: Yeah.
+Steve Goldsmith: I'm gonna think more about that. I mean, I realize that I would like to get some killer app done within the next couple of months, but I'm realizing that it has to actually be like a killer app being good. On the evals is only the first step. I do think if we get good on the evals, the point where we can market it and…
+Murali Singh: What whatsapp you on the video part?
+Steve Goldsmith: get a critical mass of
+Murali Singh: The video thing, which will be coming and coming here? Most probably I assumed it recovery. Didn't do three months itself.
+Steve Goldsmith: yeah. Yeah, videos is very expensive, that's sort of the challenge that I see with that.
+Murali Singh: Yeah, I got that. that's the only motor remaining in the market currently it is going to come and just the Texas game and know you can say, the images have been ruled and now the videos.
+Steve Goldsmith: But it's a good example. the images aren't assault problem. I mean I think video.
+Murali Singh: Yeah.
+Steve Goldsmith: Yeah. Videos is obvious thing. if you're like
+Murali Singh: Mmm.
+Steve Goldsmith: It's so obvious. It's like videos aren't and they're from videos something that we don't do well enough and obviously there's demand for video, But I think that misses the power of AI in the long term in a more broad sense. I think that's the other thing is we've been doing a good job of putting our heads down, particularly you, And just in getting stuff done. So we actually have something right rather than sitting and talking about ai. But that's for the problem is we haven't really been spending much time in the last few months, taking a step back and saying, Okay what do we think AI is gonna look like in true years in five years in 10 years, right? Because that's gonna have to be as we move into the next phase, What determines what we build, what we focus on, right? I don't think we have to do that right now though. Because the reality is we're in this chat thing if we can do. yeah. I like keeping the eye on the prize of kind of saying okay the goal is to do all these emails because the way I see it is…
+Murali Singh: God.
+Steve Goldsmith: if we can do really Easy valves will get it. Now I'm more convinced we need to have a free plan because we do all these emails.
+Murali Singh: 
+Steve Goldsmith: We get a thousand people using it. Even if those people aren't paying and then maybe we can get some of those people paying twenty dollars a month or even like $10 a month. I was thinking more about it. That frankly,…
+00:50:00
+Murali Singh: Right. I'm thinking like this thing.
+Steve Goldsmith: if you're using for a mini, it's so cheap and we can refine the front. Yeah.
+Murali Singh: Keep the use for Roman in the background. Give the pricing as for the one, when we are one big, whatever you find suitable, because they have the higher pricing. And there was used in the same logic we have behind us in China part, so why not really keep that way Use forum in the background. I have the prizing as for one minute so that way you will sustain the competition and people are not think it's much why it's kept higher, because we have also written that thing I guess we have it on over, we are doing behind this in multi-shot, from doing something like that thing.
+Steve Goldsmith: But it's not exactly the same chain of thought and we want to make it better as we go. The other problem is, at the end of the day. one preview. If you take their API pricing and then you said,…
+Murali Singh: 
+Steve Goldsmith: If you press the product, you've been losing a ton of money on those $20 plants, right? maybe I want is the thing with it being not, there's no transparency, Maybe. one preview actually, isn't that big of a model and their API. They have 80% gross margins on in which case, they can afford to do it. But the reality is, I don't think that's the case. I it's been, I think, one mini and no one pre-owned preview in particular, is mentioned directly compete with Call on 3.5 Sonic. It's exactly the same price. Right? I mean that's that giveaway and it's, slightly better on all these emails. But if you take it as being similar to the previous ones where there,…
+Murali Singh: Thanks.
+Steve Goldsmith: maybe you would break even on it sixty dollars for a million put When we did our one day of testing, we just the two of us during 40,000 output tokens.
+Steve Goldsmith: Right, which means if we sat there for 25 days, right? we would have spent $75 worth of API time that month and if we're being charging $20 a month that's a 300% loss,…
+Murali Singh: Good.
+Steve Goldsmith: it's not even, just like, we charge 25 dollars. It's no, which are twenty dollars and the worst case. s and we didn't do that much testing. the guy that I've been on Sunday who's just obsessively, Does the wizard beat,…
+Murali Singh: Yeah. Yeah.
+Steve Goldsmith: the warriors are using two hundred dollars of the resources.
+Murali Singh: That big
+Steve Goldsmith: I just like, Yeah, but okay, I agree with your idea which is we use one mini. that's what I kind of mean that They're only charging $20 a month to use 01 preview, right? I think the trick is saying, Okay, I do like having a higher price point for us like a hundred dollars.
+Murali Singh: Nah, I was feeling like this thing that use for all many four.
+Steve Goldsmith: But Per user. Yeah.
+Murali Singh: Many and…
+Steve Goldsmith: Yeah.
+Murali Singh: have pricing as Over one mini whatever. Yeah.
+Steve Goldsmith: when you say and have pricing for and who's pricing, what do you
+Murali Singh: No, no. I am saying, this thing. We will use the model called as 40. Omini Four. OH, Mini? And keep prizing as oven preview or…
+Steve Goldsmith: Yeah.
+Murali Singh: over meaning keep rising. I'm doing not use though when we are one preview.
+Steve Goldsmith: There. I know you said, but Use the numbers. what pricing are you talking about?
+Murali Singh: yeah, yeah, but I think that thing you can say that's just like,…
+Steve Goldsmith: I saw.
+Murali Singh: it's like you got the more point actually
+Steve Goldsmith: Yeah, I'm not. if are you talking about the API pricing? Are you talking about?
+Murali Singh: Yeah. If you're presentation, yeah.
+Steve Goldsmith: Okay, I mean that's such a big, I think other show what you're saying, which is we charge 15 dollars per million input tokens which is the one pricing.
+Murali Singh: Yeah. Yeah.
+Steve Goldsmith: We use the Mini behind the scenes, a lot is on your side. the challenge with that is so one that the question is, do we really want to charge per million? Do we want API pricing like that really say per million tokens or simply monthly pricing that has a token limit. For the people, I talk to, it seems like most people, they don't like the API pricing because they don't know how much they're gonna use. So it's unbounded. So they're worried. They're gonna spend a ton of money, but the idea of saying, if the price is low, then they know,…
+Murali Singh: 
+Steve Goldsmith: they can try it out at that price and see what they end up the other way to view it is I don't think people are I'm gonna use a million tokens. They view it. I have no idea what that means but I know what twenty dollars a month is. So let me try $20 a month, and I know what a hundred dollars a month is and I'm not gonna try a hundred dollars a month, unless I have some good reason to kind of prove that I've already tried it. And now I think a hundred dollars a month is a price point that can be sold to people that know that
+00:55:00
+Murali Singh: Yeah.
+Steve Goldsmith: so for example if you said we have a certain token limit for 20 dollars a month,
+Murali Singh: The guy like that can explore that.
+Steve Goldsmith: Yeah, they hit that and they're like, I'm actually using this. I use it for four or five days. It's incredible and it's helping me. Now, I'm going to pound your dollars month because I understand this concept of just I'm paying five times as much. It took me a fifth of a month to run out of the tokens. That's great. I'll spend a hundred dollars a month and that'll be great, or something where it's like, and this is trickier. This is what I kind of had in mind, but it's strictly where it's like. Okay, you use for a mini at this lower price point, right? And then suddenly realize that, there are some cases where it doesn't work as well. And now, let me try the hundred dollars a month to see if this more expensive thing does work or more qualitatively different things. let's say at the hundred dollars about when you actually can host your own API right then you're like I tried the 20 dollars nothing. It actually generate these API endpoints but I couldn't share it with anybody else. Let's say for a security standpoint. That's a lot easier, right? Yeah. You actually can use node or do something like that in some sandbox, but
+Steve Goldsmith: You as the Creator, can Internet use the application and then in the $100 a month, plan, your other people on your team. other users can test it or something like that. There's really pretty clear cut upgrade type of thing or even just storage for embeddings that's another one having chrome that's like you get a hundred megabytes of storage for the $20 month plan and then you get gigabytes of storage with pretty simple. You upload your PDFs at the hundred megabyte limit and you've been using your happy with. I found but to pay a hundred dollars a month.
+Steve Goldsmith: It has to really be superior for some use case,…
+Murali Singh: I'm good.
+Steve Goldsmith: doesn't mean for every use case, because always really care about being some particular use case.
+Murali Singh: Okay. Yeah,…
+Steve Goldsmith: If you're like, this is the best in class and…
+Murali Singh: I got that.
+Steve Goldsmith: I use it. It's just difficult for us to do that immediately and I think three reality is for twenty dollars a month, or again, this won't even think actually charging less to make it Don't even try to have this idea that we're the same as a plan. Make it ten dollars a month and basically it's like Yeah we do do the the thing is the gap between
+Steve Goldsmith: Borrow money is a hundred, the cost of Owen preview so we can afford to only charge $10 a month and have people use it not unlimited but quite a bit of usage with Forum Mini even with our Multi-prompting. so the math kind of works out in our day where we tested, we each did about 20,000 tokens of input and twenty thousand tokens of output. That's only point three cents with four with the outbreak about one cent total which means that over 30 days that only is 30 cents, plus whatever the embedding costume and search for being another 10 or 20 cents then it's actually If we church $10 a month and they're only using 50 cents per day, that's what we have really really high margins. The irony is jumping up to even for a regular but then definitely Owen Preview.
+Steve Goldsmith: It's like that's a hundred twenty times as much for a hundred times as much for Oh one.
+Murali Singh: I don't know.
+Steve Goldsmith: And so suddenly it becomes Alright where do we want to use those prompt? So, what I'm thinking is, even in the expensive versions, we want to mostly use for a mini for formatting for HTML generation and then only have one prompt in every response that uses.
+Murali Singh: Better than majority. And
+Steve Goldsmith: One or four.
+Murali Singh: I use while the first date that I saw that thing,…
+Steve Goldsmith: Yeah, and then I don't know, you can't even with yeah.
+Murali Singh: it is to consume a whole large amount of glass team that is output and all it's very long, very descriptive enough,…
+Steve Goldsmith: Yeah.
+Murali Singh: I've seen that thing and yeah, within one shot you can get
+Steve Goldsmith: And so at this point, a lot of it has to be flexible based on what we actually get working. on the AI side, I think rag is gonna be the key because I know that a few things one, we really can't rely on fine tuning…
+Murali Singh: Yeah, I read that. I
+Steve Goldsmith: because that's a big up front expense. I just can't afford, So the reality is and on the other hand, So a lot of things you'll see this chart where it's rag, fine, ning combining, those approaches. The idea is because we really need to find tune this or for a little bit of an efficiency loss? Can we actually just go ahead and do a few more prompts without fine? Tune I think the answer usually is generally speaking.
+01:00:00
+Steve Goldsmith: Then on the rag side, I think is where we have to be with the BTE evals by basically saying, We do rag and we do search better not so much in the way that Andy does better one off search where it doesn't understand the context, but much more like research, like a graduate student would do of saying We have a problem that we're given to solve, that's pretty big and we can go ahead and solve that because we're pulling in these documents and then really efficiently. So with route, I was reading these papers. I mean, at some point we have to actually do something innovative. This is the hard reality of the thing.
+Murali Singh: Yeah, and
+Steve Goldsmith: That's really innovative in the AI space to actually be competitive in this winter. Take all thing. And without any budget, going ahead and actually being innovative is the toughest part. Everything else is just like,…
+Murali Singh: Yeah. Yeah, I think this way.
+Steve Goldsmith: sure, we need the application to work.
+Murali Singh: Yeah, I was reading last Sunday.
+Steve Goldsmith: but
+Murali Singh: Yes. In this. There are any prefer rag over,…
+Steve Goldsmith: yeah.
+Murali Singh: find winning for the new knowledge. That thing. But guys finding it is like, thank you for creating your own data set,…
+Steve Goldsmith: Yeah.
+Murali Singh: and all doing that stuff. and in the back, that thing is not that
+Steve Goldsmith: Yeah.
+Murali Singh: 
+Steve Goldsmith: It doesn't into We're fine-tuning, can be helpful in that mix where you do both is a lot of times to improve the efficiency of certain steps.
+Murali Singh: Yeah.
+Steve Goldsmith: So for us, we're doing this multi-stage problem.
+Murali Singh: That thing I was thinking,…
+Steve Goldsmith: A good example of fine-tune would be…
+Murali Singh: yeah, that was a gift. Mmm.
+Steve Goldsmith: fine-tune the HTML generator, so that something like that, but a lot of that actually just becomes a versus variable cost straight up. And we want to air on, We have to basically not have these fixed costs, Because we haven't raised money so we can't afford to say here's a case we're fine tuning. If we did a million problems would save this percentage. We want to say fine. We know that this isn't the most efficient way to do it, but it works and it's a little bit more expensive.
+Steve Goldsmith: And so yeah. Where's rag the trick? So after I've been reading newspapers my gut feeling is that Okay, so here's what I think we can innovate on rag with rag, right? you're basically feed in data and…
+Murali Singh: Yeah.
+Steve Goldsmith: chunk it and then generate embedding for those chunks put that in chroma database. And then when you have a new query, you basically like hey have that ry. Go ahead and retrieve, whatever chunks match that embedding of that query, put them together.
+Steve Goldsmith: The here, I'll Sherman ice cream. First, I ain't going in a couple minutes, but this will be good. This is what I'm gonna talk about, who the other guy anyway. But yeah, this survey paper. It came out about six months ago. Is pretty good at summarizing all the various techniques. Forget that. But yeah, first of all, if you look at these are all the papers that they included in the survey, I mean it's just so many different. techniques and here's that idea you got fine tuning and this idea of you take your prompt, you do a few shot, you do chain of thought, this is kind of where we've been living and then you do naive rag and then there's advanced rag mod drag. And then you kind of say, Not fine-tuning by itself.
+Murali Singh: The.
+Steve Goldsmith: But fine-tuning, the rag steps because some of these are different. I don't think that's the right way to do it, though.
+Steve Goldsmith: But okay, so here's this idea of the traditional rag. you provide your query, you've already indexed the documents and then you do retrieval, right? And then whatever gets retrieved gets included in the prompt.
+Murali Singh: The.
+Steve Goldsmith: Then the idea is these advanced techniques often have this idea that before you actually retrieve you use some prompting to generate. What this query for retrieval should be they got a queer queer,…
+Murali Singh: Yeah.
+Steve Goldsmith: routing query expansion that all day and then after you retrieve the day, you don't just dump it in naively, go through and say, now we actually read through the documents and see if some are more important summarize. Some of the documents fusion actually merge concepts from different sources like a final thing, that's pretty sure for what it's missing here. Is if you notice and then modular space is take some of those techniques, And kind of subdivide them into reusable modules so that you can do a better job of iteration and then you get to these techniques.
+01:05:00
+Steve Goldsmith: Here we're basically the idea is you do an iterative approach to refine that or you actually modify the queries based on the results like you would do in a normal research, which is almost like What does adaptive kind of ideas like, if you get the answer right away, that's great. If you do some research and you find that you get more information, that requires you to do more research, will you do that until you're happy with some sort of answer. but all that still revolves around this idea that when you do the indexing,
+Steve Goldsmith: Right here. It's all independent of the use case, And so what you generally are doing, you're getting an embedding just based on this raw information which is not very useful. But I think the real trick is to say before and there's a cost right here. But before we actually, put this in chroma and do the embedding for certain cases, you're running a prompt against the raw data before you index it to generate additional information from that and…
+Murali Singh: Yeah.
+Steve Goldsmith: then that's what you're actually putting the embedding.
+Murali Singh: Okay.
+Steve Goldsmith: So take an example we have a JavaScript Style Guide or something that's 100 pages long is they're just the style guide in.
+Murali Singh: Yeah.
+Steve Goldsmith: You might actually start with some questions being which one, does this have to do with naming conventions, just have to do this topic or if basically take the actual use cases. Question is this appropriate for this use case? And that way the embedding actually reflects use cases because then we do the retrieval. You're not just retrieving Hey, does this have to do with this topic? But I have this particular use case. go ahead and retrieve information, based on that, and that's already included in the embedding because you don't necessarily need some different embedding, you can use the big thing, betting, you do generate texts though that top speaks to those attributes that you actually want to retrieve on.
+Steve Goldsmith: And a lot of this comes down to almost the way database is going to be back normalize or denormalize. this question of if you want to make reading really efficient you need to know when you do the rights, what your goals are, So this gets we're talking about today with this business intelligence. It's nice to be able to say, I can ask any question in the future. That's the most flexible thing. But the cost very high…
+Murali Singh: Yeah.
+Steve Goldsmith: because you have to store everything and then have a way to query everything. And with this rag would like, our date in Postgres? That will be fine as well. Do that right? Because, It's in a database. But with the rag where it's like, I'm gonna do a bunch of searches. Should I cast these results? What should I include? You kind of know when you're searching for something. You have a purpose or not? Right.
+Murali Singh: Yeah.
+Steve Goldsmith: And so not just searching to collect a database of search results that are like, what's the topic here? And so, I think that's the trick of
+Steve Goldsmith: Knowing and that's tricky because it's no longer agnostic to the retrieval problem. The beauty is a current ways are pretty simple. It's Have a thing where you dump PDFs and then, It's in your chroma database and then that retrievals were all the work is and you're good. I got to make this better, but none of it really allows you to met. For example, the chunking needs to be context sensitive. and more importantly, this fusion should probably be happening to a certain extent on the input side, you fuse, you create a document, then you put that with an embedding rather than just the tricky trade off, though. Is it can be cause forever because of the reason you're using rag in the first place is just cause prohibitive to run a language model on the data at all. Then you can't run it on the data during the input phase, right? So I kind of came up with this approach which is a three step
+Steve Goldsmith: New generate a raw embedding to understand the topics then you do a single pass with for many over chunks. That might be a good fit to and do fusion It doesn't require a lot of reasoning but really asking the question using an LM like is this?
+Steve Goldsmith: Related to the question you were asking or is it just seem like it on the topic and then that's running on a subset? you're good at Google Search eventually, that seems like That's the right page. And you actually go to the page and that's not what I'm here. That's a different idea and then use that with a single passive for a minute. So, it's Chief and then, finally, you've aggregated those results and those into the rag thing that's getting old by the final actually doing the reasoning and answering whatever the problem,…
+01:10:00
+Murali Singh: Yeah.
+Steve Goldsmith: kind of thing like that. And I think for us for use cases Web development like searching documentation online as a good example of that where it's like, Hey I want to search the Web and I want to search MD and search the Web, We ten different queries, Find the official dogs, Find a bunches back, Overflow response, I just doing things to have any of them have the right topic and then synthesize that all into And then kind of store all those intermediate results in rag. And it will,…
+Murali Singh: Yeah.
+Steve Goldsmith: keep working all this stuff I got to get going here to have that call and…
+Murali Singh: Yeah.
+Steve Goldsmith: a couple minutes. Yeah, we'll pick up. I don't even think we talked about the Web socket thing really, but That's more morning. That's good. All right. Student.
+Murali Singh: Okay, see you.
+Meeting ended after 01:11:16 👋
+This editable transcript was computer generated and might contain errors. People can also change the text after it was created.
